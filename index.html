@@ -1,64 +1,98 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Concours</title>
-  </head>
-  <body>
-    <h1> Concours de Kiffer </h1>
-    <nav>
-      <ul>
-        <li>Accueil</li>
-        <li>
-          <a href="#form">Formulaire</a>
-        </li>
-      </ul>
-      <header>
-        <h1>Titre: Concours Kiffer</h1>
+<html>
+<head>
+  <title>Accès refusé</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ff0000; /* Fond rouge */
+      overflow: hidden; /* Empêche le débordement des éléments */
+      position: relative;
+    }
 
-        <p>
-          Un concours de coda pour voir qui kiffe le plus. Participez et montrez
-          nos compétences en codage ! Le gagnant sera celui qui aura le plus
-          de kiffs à la fin du concours. et voir combien de fois kiffer est for que moi
-        </p>
+    /* Bandes noires et vertes pour l'effet de cadre */
+    body::before,
+    body::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 25px; /* Hauteur des bandes */
+      background-color: #000000; /* Bande noire */
+    }
 
-      </header>
-      <main>
-        <section>
-          <h2>Liste de language appris</h2>
-          <ol>
-            <li>HTML</li>
-            <li>C</li>
-            <li>Python</li>
-        </section>
-        <table border="4" cellpadding="10" cellspacing="4"
-          style="text-align: center"
-          >
-            <!-- thead est pour l'entente du tableau -->
-            <thead>
-              <tr>
-                <th>Moi </th>
-                <th>Kiffer</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                
-                  <td>PYTHON</td>
-                  <td>HTML</td>
-  
-              </tr>
-              <tr>
-                  <td>HTML</td>
-                  <td>CSS</td>
-              </tr>
-              <tr>
-                  <td>CSHAP</td>
-                  <td>JavaScript</td>
-            </tbody>
-              
-          </table>
-      </main>
-  </body>
+    body::before {
+      top: 0;
+      border-bottom: 2px solid #00ff00; /* Ligne verte en bas de la bande noire du haut */
+    }
+
+    body::after {
+      bottom: 0;
+      border-top: 2px solid #00ff00; /* Ligne verte en haut de la bande noire du bas */
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.7); /* Carré noir transparent */
+      padding: 40px;
+      border: 3px solid #00ff00; /* Bordure verte pour l'effet de carré */
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.8); /* Ombre lumineuse verte */
+      animation: glitch 1s infinite;
+    }
+    
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #00ff00; /* Texte principal en vert */
+      text-shadow: 0 0 10px #00ff00; /* Ombre lumineuse verte */
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>ACCÈS REFUSÉ</h1>
+    <p id="compte-a-rebours"></p>
+  </div>
+
+  <script>
+    let secondes = 10;
+    const decompte = document.getElementById('compte-a-rebours');
+    decompte.textContent = "Déconnexion dans " + secondes + " secondes...";
+
+    function mettreAJourCompteur() {
+      secondes--;
+      decompte.textContent = "Déconnexion dans " + secondes + " secondes...";
+
+      if (secondes === 0) {
+        window.location.href = "https://vm.tiktok.com/ZMAebs3BQ/";
+      }
+    }
+
+    const intervalle = setInterval(mettreAJourCompteur, 1000);
+  </script>
+
+</body>
 </html>
